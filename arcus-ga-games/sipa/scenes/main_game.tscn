@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://b5otpikhdwku0"]
+
+[ext_resource type="PackedScene" uid="uid://3bfqf3cu2oi1" path="res://sipa/scenes/sipa.tscn" id="1_x6q1h"]
+[ext_resource type="Script" uid="uid://ut2344acm8xn" path="res://sipa/scripts/main_game.gd" id="1_xlu0t"]
+[ext_resource type="PackedScene" uid="uid://cju1w6p4f8s0s" path="res://sipa/scenes/leaderboard_ui.tscn" id="3_00o7h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_myywt"]
+size = Vector2(480, 20)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_myywt"]
+friction = 0.0
+bounce = 0.8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l4bp3"]
+size = Vector2(1, 1601.5)
+
+[node name="MainGame" type="Node2D" unique_id=979064904]
+script = ExtResource("1_xlu0t")
+
+[node name="Sipa" parent="." unique_id=1873332470 instance=ExtResource("1_x6q1h")]
+position = Vector2(240, 280)
+
+[node name="DeathZone" type="Area2D" parent="." unique_id=678422709]
+
+[node name="Zone" type="CollisionShape2D" parent="DeathZone" unique_id=1469945749]
+position = Vector2(240, 790)
+shape = SubResource("RectangleShape2D_myywt")
+
+[node name="Boundaries" type="StaticBody2D" parent="." unique_id=1220330600]
+physics_material_override = SubResource("PhysicsMaterial_myywt")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Boundaries" unique_id=1853116527]
+position = Vector2(0.5, 400)
+shape = SubResource("RectangleShape2D_l4bp3")
+
+[node name="RightWall" type="CollisionShape2D" parent="Boundaries" unique_id=676978213]
+position = Vector2(479.5, 400)
+shape = SubResource("RectangleShape2D_l4bp3")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=131147017]
+
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=2009778875]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 67.0
+offset_bottom = 166.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "0"
+horizontal_alignment = 1
+
+[node name="GameOverPanel" type="ColorRect" parent="HUD" unique_id=701011792]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5882353)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/GameOverPanel" unique_id=320452399]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="HUD/GameOverPanel/VBoxContainer" unique_id=1789853800]
+layout_mode = 2
+text = "Game Over!	"
+horizontal_alignment = 1
+
+[node name="FinalScoreLabel" type="Label" parent="HUD/GameOverPanel/VBoxContainer" unique_id=982527026]
+layout_mode = 2
+text = "Score: 0"
+horizontal_alignment = 1
+
+[node name="NameInput" type="LineEdit" parent="HUD/GameOverPanel/VBoxContainer" unique_id=1494560794]
+layout_mode = 2
+placeholder_text = "Enter your name..."
+alignment = 1
+expand_to_text_length = true
+
+[node name="SubmitButton" type="Button" parent="HUD/GameOverPanel/VBoxContainer" unique_id=705435830]
+layout_mode = 2
+text = "Submit Score"
+
+[node name="RestartButton" type="Button" parent="HUD/GameOverPanel/VBoxContainer" unique_id=773108593]
+layout_mode = 2
+text = "Play Again"
+
+[node name="LeaderboardButton" type="Button" parent="HUD/GameOverPanel/VBoxContainer" unique_id=1776891117]
+layout_mode = 2
+text = "View Leaderboard"
+
+[node name="StatusLabel" type="Label" parent="HUD/GameOverPanel/VBoxContainer" unique_id=1768502810]
+layout_mode = 2
+
+[node name="WarningLabel" type="Label" parent="HUD" unique_id=446371679]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -271.0
+offset_top = -33.5
+offset_right = 271.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "NEW BALL INCOMING!!!"
+horizontal_alignment = 1
+
+[node name="LeaderboardUI" parent="HUD" unique_id=1263125416 instance=ExtResource("3_00o7h")]
+visible = false

@@ -1,0 +1,18 @@
+# Godot 4 specific ignores
+.godot/
+.import/
+export.cfg
+export_presets.cfg
+
+# Imported asset cache
+*.import
+
+# Godot-specific binary/debug outputs
+*.translation
+*.csproj
+*.sln
+.mono/
+
+# Local OS files
+.DS_Store
+Thumbs.db
