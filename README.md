@@ -1,4 +1,4 @@
-# Arcus Ga Games
+# Arcus General Assembly Minigames
 
 This repository houses the web application and backend infrastructure for **Sipa** and **Dalgona Cookie Cutting**, a series of 2D web games built with Godot 4 and seamlessly integrated into a Next.js environment.
 
