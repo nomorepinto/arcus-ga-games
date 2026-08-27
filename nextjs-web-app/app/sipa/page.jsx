@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { ArrowLeft, Gamepad2 } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 
 export default function SipaPage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-zinc-50 dark:bg-zinc-950 p-6 text-zinc-900 dark:text-zinc-50">
+    <main className="flex min-h-screen flex-col items-center justify-center p-6 text-zinc-50">
       
       {/* Container wrapper matching portal width */}
       <div className="w-full max-w-xl space-y-4">
@@ -13,7 +13,7 @@ export default function SipaPage() {
         <div className="flex items-center justify-between">
           <Link 
             href="/" 
-            className="inline-flex items-center gap-2 text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50"
+            className="inline-flex items-center gap-2 text-sm font-medium text-zinc-400 transition-colors hover:text-rose-400 font-mono tracking-wider"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Portal
@@ -21,17 +21,19 @@ export default function SipaPage() {
           
           <Link 
             href="/leaderboard" 
-            className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+            className="text-sm font-medium text-teal-400 hover:text-teal-300 hover:underline font-mono tracking-wider"
           >
             View Leaderboard &rarr;
           </Link>
         </div>
 
         {/* Coss UI Game Container Card */}
-        <Card className="border-zinc-200 shadow-sm dark:border-zinc-800 bg-white dark:bg-zinc-950">
-          <CardHeader className="text-center pb-3">
-            <CardTitle className="text-2xl font-semibold tracking-tight">Sipa Minigame</CardTitle>
-            <CardDescription className="text-zinc-500 dark:text-zinc-400">
+        <Card className="border-rose-500/30 shadow-[0_0_30px_rgba(225,29,72,0.15)] bg-zinc-950/90 backdrop-blur-md">
+          <CardHeader className="text-center pb-3 border-b border-rose-500/20 mb-4">
+            <CardTitle className="text-2xl font-extrabold tracking-wider text-white uppercase font-mono">
+              Trial 01: Sipa
+            </CardTitle>
+            <CardDescription className="text-teal-400 font-mono text-xs">
               Keep the sipa in the air and watch out for multi-ball chaos!
             </CardDescription>
           </CardHeader>
@@ -39,7 +41,8 @@ export default function SipaPage() {
           <CardContent className="flex flex-col items-center p-6 pt-0">
             {/* Resizable Phone Screen Aesthetic Wrapper */}
             <div 
-              className="w-[480px] h-[720px] min-w-[300px] min-h-[400px] max-w-full max-h-[80vh] rounded-xl border border-zinc-200 dark:border-zinc-800 bg-zinc-950 shadow-inner overflow-hidden relative p-1"
+              className="w-[480px] h-[720px] min-w-[300px] min-h-[400px] max-w-full max-h-[80vh] rounded-xl border border-rose-500/30 bg-zinc-950 shadow-[0_0_15px_rgba(0,0,0,0.8)] overflow-hidden relative p-1"
+              style={{ resize: 'both' }}
             >
               <iframe 
                 src="/godot/sipa_export.html" 
@@ -48,7 +51,7 @@ export default function SipaPage() {
               />
             </div>
             
-            <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-3 text-center">
+            <p className="text-xs text-zinc-500 font-mono mt-4 text-center tracking-wide">
               Tip: Click and drag the bottom-right corner of the box to resize it freely.
             </p>
           </CardContent>

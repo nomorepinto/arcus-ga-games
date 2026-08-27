@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://gq0ck8idc4qf"]
+
+[ext_resource type="Script" uid="uid://brd1tecmg78y7" path="res://sipa/scripts/title_screen.gd" id="1_brgft"]
+[ext_resource type="Texture2D" uid="uid://bpd1no42rlipa" path="res://sipa/assets/title.png" id="2_ci2d1"]
+
+[node name="TitleScreen" type="Control" unique_id=672303396]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_brgft")
+
+[node name="PopupPanel" type="PanelContainer" parent="." unique_id=468999669]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -43.0
+offset_right = 80.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainVBox" type="VBoxContainer" parent="PopupPanel" unique_id=1283685055]
+layout_mode = 2
+alignment = 1
+
+[node name="TitleLabel" type="TextureRect" parent="PopupPanel/MainVBox" unique_id=35022165]
+layout_mode = 2
+texture = ExtResource("2_ci2d1")
+expand_mode = 5
+
+[node name="PlayButton" type="Button" parent="PopupPanel/MainVBox" unique_id=494512808]
+layout_mode = 2
+text = "PLAY"

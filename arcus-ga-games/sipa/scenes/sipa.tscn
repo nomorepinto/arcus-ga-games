@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://3bfqf3cu2oi1"]
 
 [ext_resource type="Script" uid="uid://c8squkli3446o" path="res://sipa/scripts/sipa.gd" id="1_srdbr"]
-[ext_resource type="Texture2D" uid="uid://l2f534nrc04h" path="res://sipa/assets/default_ball.png" id="2_hip7p"]
-[ext_resource type="AudioStream" uid="uid://v8xdnq43qbre" path="res://sipa/assets/tap.ogg" id="3_hip7p"]
+[ext_resource type="Texture2D" uid="uid://b1leouweo0y1v" path="res://sipa/assets/default_ball.png" id="2_hip7p"]
+[ext_resource type="AudioStream" uid="uid://jlbt5f2tkw3a" path="res://sipa/assets/tap.ogg" id="3_hip7p"]
 [ext_resource type="AudioStream" uid="uid://c8ixsc746sp58" path="res://sipa/assets/impact.ogg" id="4_wg5rt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_myywt"]
@@ -17,7 +17,7 @@ max_contacts_reported = 1
 script = ExtResource("1_srdbr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=201912603]
-scale = Vector2(0.067, 0.067)
+scale = Vector2(0.038, 0.038)
 texture = ExtResource("2_hip7p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1660072523]
@@ -29,3 +29,4 @@ volume_db = -5.0
 
 [node name="ImpactSFX" type="AudioStreamPlayer" parent="." unique_id=54303667]
 stream = ExtResource("4_wg5rt")
+volume_db = 3.0

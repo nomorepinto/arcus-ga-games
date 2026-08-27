@@ -12,8 +12,6 @@ var sipa_scene = preload("res://sipa/scenes/sipa.tscn")
 @onready var restart_button = $HUD/GameOverPanel/VBoxContainer/RestartButton
 @onready var status_label = $HUD/GameOverPanel/VBoxContainer/StatusLabel
 @onready var warning_label = $HUD/WarningLabel
-@onready var leaderboard_ui = $HUD/LeaderboardUI
-@onready var leaderboard_button = $HUD/GameOverPanel/VBoxContainer/LeaderboardButton
 
 func _ready():
 	# Find the DeathZone and connect its body_entered signal
@@ -25,7 +23,6 @@ func _ready():
 	# Connect button signals
 	submit_button.pressed.connect(_on_submit_pressed)
 	restart_button.pressed.connect(_on_restart_pressed)
-	leaderboard_button.pressed.connect(_on_leaderboard_pressed)
 	
 	# Listen for the backend response from our updated Next.js Autoload
 	NextjsClient.score_submitted.connect(_on_score_submitted)

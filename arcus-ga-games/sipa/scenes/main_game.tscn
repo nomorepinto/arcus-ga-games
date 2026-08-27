@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://3bfqf3cu2oi1" path="res://sipa/scenes/sipa.tscn" id="1_x6q1h"]
 [ext_resource type="Script" uid="uid://ut2344acm8xn" path="res://sipa/scripts/main_game.gd" id="1_xlu0t"]
-[ext_resource type="PackedScene" uid="uid://cju1w6p4f8s0s" path="res://sipa/scenes/leaderboard_ui.tscn" id="3_00o7h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myywt"]
 size = Vector2(480, 20)
@@ -97,10 +96,6 @@ text = "Submit Score"
 layout_mode = 2
 text = "Play Again"
 
-[node name="LeaderboardButton" type="Button" parent="HUD/GameOverPanel/VBoxContainer" unique_id=1776891117]
-layout_mode = 2
-text = "View Leaderboard"
-
 [node name="StatusLabel" type="Label" parent="HUD/GameOverPanel/VBoxContainer" unique_id=1768502810]
 layout_mode = 2
 
@@ -121,6 +116,3 @@ theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "NEW BALL INCOMING!!!"
 horizontal_alignment = 1
-
-[node name="LeaderboardUI" parent="HUD" unique_id=1263125416 instance=ExtResource("3_00o7h")]
-visible = false

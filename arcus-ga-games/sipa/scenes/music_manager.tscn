@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://2c5j4685yu7h"]
+
+[ext_resource type="Script" uid="uid://dcc1edbut80vn" path="res://sipa/scripts/music_manager.gd" id="1_1gy6t"]
+[ext_resource type="AudioStream" uid="uid://b8laniwlkle5l" path="res://sipa/assets/bgm.ogg" id="1_5jj7b"]
+[ext_resource type="Texture2D" uid="uid://by31ocd8nl550" path="res://sipa/assets/bg.jpg" id="3_2f4yj"]
+
+[node name="MusicManager" type="AudioStreamPlayer" unique_id=655128066]
+stream = ExtResource("1_5jj7b")
+script = ExtResource("1_1gy6t")
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=758196214]
+layer = -100
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer" unique_id=1338387224]
+modulate = Color(0.83214575, 0.83214575, 0.83214575, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_2f4yj")
