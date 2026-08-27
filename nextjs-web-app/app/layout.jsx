@@ -6,6 +6,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: "Arcus GA Minigames 2026",
   description: "Play Sipa and Dalgona Cookie",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 
