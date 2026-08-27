@@ -21,6 +21,7 @@ script = ExtResource("1_xlu0t")
 position = Vector2(240, 280)
 
 [node name="DeathZone" type="Area2D" parent="." unique_id=678422709]
+collision_mask = 3
 
 [node name="Zone" type="CollisionShape2D" parent="DeathZone" unique_id=1469945749]
 position = Vector2(240, 790)
