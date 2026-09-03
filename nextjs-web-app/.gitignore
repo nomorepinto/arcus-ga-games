@@ -1,0 +1,20 @@
+# --- SENSITIVE ENVIRONMENT VARIABLES ---
+# This hides your AWS credentials from GitHub!
+.env
+.env*.local
+nextjs-web-app/.env
+nextjs-web-app/.env*.local
+
+# --- DEPENDENCIES ---
+/node_modules
+nextjs-web-app/node_modules
+
+# --- NEXT.JS BUILD OUTPUTS ---
+/.next/
+/out/
+nextjs-web-app/.next/
+nextjs-web-app/out/
+
+# --- LOCAL OS FILES ---
+.DS_Store
+Thumbs.db
