@@ -3,6 +3,9 @@ extends Node2D
 var current_score: int = 0
 var is_game_over: bool = false # Tracks if the game has ended
 var sipa_scene = preload("res://sipa/scenes/sipa.tscn")
+var beneball_scene = preload("res://sipa/scenes/beneball.tscn")
+var next_milestone: int = 15
+var num_of_balls: int = 1
 
 @onready var score_label = $HUD/ScoreLabel
 @onready var game_over_panel = $HUD/GameOverPanel
@@ -32,7 +35,12 @@ func _ready():
 	score_label.text = str(current_score)
 
 func spawn_new_ball():
-	var new_ball = sipa_scene.instantiate()
+	var chosen_scene
+	if randf() < 0.067:
+		chosen_scene = beneball_scene
+	else:
+		chosen_scene = sipa_scene
+	var new_ball = chosen_scene.instantiate()
 	
 	# Position it at the top-center of the screen
 	new_ball.position = Vector2(get_viewport_rect().size.x / 2, 50)
@@ -49,8 +57,10 @@ func _on_sipa_tapped():
 	score_label.text = str(current_score)
 	
 	# Add new balls at specific thresholds
-	if current_score == 25 or current_score == 75 or current_score == 150:
+	if current_score >= next_milestone:
+		num_of_balls += 1
 		trigger_ball_warning()
+		next_milestone *= num_of_balls
 
 func trigger_ball_warning():
 	# Show the warning

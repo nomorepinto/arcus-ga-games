@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c3o17kaxxu74l"]
+
+[ext_resource type="Script" uid="uid://p5bfq6ymnryi" path="res://sipa/scripts/beneball.gd" id="1_bgolt"]
+[ext_resource type="Texture2D" uid="uid://dpx4bwg0vp7iu" path="res://sipa/assets/idle_beneball.png" id="2_bgolt"]
+[ext_resource type="AudioStream" uid="uid://jlbt5f2tkw3a" path="res://sipa/assets/tap.ogg" id="3_0y5q8"]
+[ext_resource type="AudioStream" uid="uid://c8ixsc746sp58" path="res://sipa/assets/impact.ogg" id="4_by1os"]
+[ext_resource type="AudioStream" uid="uid://ccmwhng5y66lj" path="res://sipa/assets/scream_beneball.ogg" id="4_vg4lh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_myywt"]
+radius = 34.0147
+
+[node name="Beneball" type="RigidBody2D" unique_id=1873332470 groups=["sipa"]]
+collision_layer = 2
+input_pickable = true
+gravity_scale = 1.5
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_bgolt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=201912603]
+scale = Vector2(0.038, 0.038)
+texture = ExtResource("2_bgolt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1660072523]
+shape = SubResource("CircleShape2D_myywt")
+
+[node name="TapSFX" type="AudioStreamPlayer" parent="." unique_id=707351116]
+stream = ExtResource("3_0y5q8")
+volume_db = -5.0
+
+[node name="ScreamSFX" type="AudioStreamPlayer" parent="." unique_id=960281655]
+stream = ExtResource("4_vg4lh")
+volume_db = -5.0
+
+[node name="ImpactSFX" type="AudioStreamPlayer" parent="." unique_id=54303667]
+stream = ExtResource("4_by1os")
+volume_db = 3.0
