@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bo3j6ju6delfl"]
+
+[ext_resource type="Script" uid="uid://quhqcpxenw0" path="res://dalgona/scripts/main_menu.gd" id="1_2etrf"]
+[ext_resource type="Texture2D" uid="uid://b1iqyy0hkq2y0" path="res://dalgona/assets/title.png" id="2_hauy0"]
+[ext_resource type="Texture2D" uid="uid://cxgc5s3ieyvgt" path="res://dalgona/assets/bg.jpg" id="3_ixkyo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1q06n"]
+bg_color = Color(0.8364784, 0.31251597, 0.3541979, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[node name="MainMenu" type="Control" unique_id=1507721137]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 41.0
+offset_top = 324.0
+offset_right = 41.0
+offset_bottom = 324.0
+script = ExtResource("1_2etrf")
+
+[node name="title" type="TextureRect" parent="." unique_id=867950304]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -77.0
+offset_right = 426.0
+offset_bottom = -35.0
+texture = ExtResource("2_hauy0")
+expand_mode = 1
+
+[node name="background" type="TextureRect" parent="." unique_id=789371506]
+z_index = -2
+layout_mode = 0
+offset_left = -394.0
+offset_top = -314.0
+offset_right = 741.0
+offset_bottom = 475.0
+texture = ExtResource("3_ixkyo")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1274862055]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 20
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=27518947]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer" unique_id=1115889452]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1140503825]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1q06n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1q06n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1q06n")
+text = "Play!"

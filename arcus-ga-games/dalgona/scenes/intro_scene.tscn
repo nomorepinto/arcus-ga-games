@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://p6mmx1vsijyy"]
+
+[ext_resource type="Script" uid="uid://cwdvq715nbonf" path="res://dalgona/scripts/intro_video.gd" id="1_m06rq"]
+[ext_resource type="VideoStream" uid="uid://b5c71ywgsbrx2" path="res://dalgona/assets/finalintrovid.ogv" id="2_hg3yg"]
+
+[node name="IntroVideo" type="Control" unique_id=1463534043]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m06rq")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1878000008]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_hg3yg")
+volume_db = -80.0
+autoplay = true
+expand = true

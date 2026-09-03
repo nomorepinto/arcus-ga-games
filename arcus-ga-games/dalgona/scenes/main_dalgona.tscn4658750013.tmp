@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cr27pa30j5osu"]
+
+[ext_resource type="Script" uid="uid://7o53tg3442bg" path="res://dalgona cutting/scripts/main_dalgona.gd" id="1_m2bnq"]
+[ext_resource type="PackedScene" uid="uid://cfknqgge00htc" path="res://dalgona cutting/scenes/star.tscn" id="2_f2rs4"]
+[ext_resource type="Texture2D" uid="uid://bh50fparsraj3" path="res://dalgona cutting/assets/bene.jpg" id="3_lcugk"]
+[ext_resource type="PackedScene" uid="uid://wjhgfl7ywysc" path="res://dalgona cutting/scenes/umbrella.tscn" id="3_n2xmv"]
+[ext_resource type="AudioStream" uid="uid://ip0epsr438op" path="res://dalgona cutting/assets/jumpscare.mp3" id="4_f2rs4"]
+[ext_resource type="PackedScene" uid="uid://cane2gw4rjcy" path="res://dalgona cutting/scenes/square.tscn" id="4_n2xmv"]
+[ext_resource type="PackedScene" uid="uid://dcfur1nop7mh" path="res://dalgona cutting/scenes/circle.tscn" id="5_b0o0d"]
+[ext_resource type="PackedScene" uid="uid://b5uwibqsmsrlh" path="res://dalgona cutting/scenes/fractal.tscn" id="6_a6mcs"]
+
+[node name="main_dalgona" type="Node2D" unique_id=905804085]
+script = ExtResource("1_m2bnq")
+shape_scenes = Array[PackedScene]([ExtResource("2_f2rs4"), ExtResource("4_n2xmv"), ExtResource("3_n2xmv"), ExtResource("5_b0o0d"), ExtResource("6_a6mcs")])
+
+[node name="jumpscare" type="CanvasLayer" parent="." unique_id=1402702962]
+
+[node name="pic" type="TextureRect" parent="jumpscare" unique_id=604853275]
+visible = false
+offset_left = 46.0
+offset_top = 332.0
+offset_right = 438.0
+offset_bottom = 625.0
+texture = ExtResource("3_lcugk")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="jumpscare" unique_id=1101533842]
+stream = ExtResource("4_f2rs4")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=896694404]
+z_index = 1
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=877098956]
+position = Vector2(241, 398)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=7480640]
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer" unique_id=1144933833]
+offset_left = 89.0
+offset_top = 117.0
+offset_right = 376.0
+offset_bottom = 141.0
+min_value = 1.0
+max_value = 4.0
+step = 0.1
+value = 1.0
+
+[connection signal="value_changed" from="CanvasLayer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/HSlider" to="." method="_on_zoom_slider_value_changed"]

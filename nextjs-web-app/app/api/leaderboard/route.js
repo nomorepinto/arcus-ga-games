@@ -16,6 +16,8 @@ export async function GET(request) {
   const gameId = searchParams.get("game") || "SIPA";
   const limit = parseInt(searchParams.get("limit") || "10", 10);
 
+  const isDalgona = gameId.toUpperCase() == "DALGONA";
+
   try {
     const response = await docClient.send(new QueryCommand({
       TableName: process.env.DYNAMODB_TABLE_NAME,
@@ -25,8 +27,21 @@ export async function GET(request) {
         ":pk": `GAME#${gameId.toUpperCase()}`,
       },
       ScanIndexForward: false, // Descending order
-      Limit: limit,
     }));
+
+    let items = response.Items || [];
+
+    // Sort explicitly in JavaScript
+    if (isDalgona) {
+      // Ascending for Dalgona
+      items.sort((a, b) => Number(a.Score) - Number(b.Score));
+    } else {
+      // Descending for Sipa
+      items.sort((a, b) => Number(b.Score) - Number(a.Score));
+    }
+
+    // Apply the limit after sorting
+    const limitedItems = items.slice(0, limit);
 
     return NextResponse.json({ data: response.Items }, { status: 200 });
   } catch (error) {

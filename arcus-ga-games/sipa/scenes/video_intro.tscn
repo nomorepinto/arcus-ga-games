@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://760csioihxdg"]
+
+[ext_resource type="Script" uid="uid://d3dok7n4qexxy" path="res://sipa/scripts/video_intro.gd" id="1_1tfea"]
+[ext_resource type="VideoStream" uid="uid://clbxs83d7acim" path="res://sipa/assets/sipa_intro.ogv" id="2_pe2w2"]
+
+[node name="VideoIntro" type="Control" unique_id=1523942245]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1tfea")
+next_scene_path = "uid://gq0ck8idc4qf"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=1739127152]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_pe2w2")
+volume_db = -80.0
+autoplay = true
+expand = true

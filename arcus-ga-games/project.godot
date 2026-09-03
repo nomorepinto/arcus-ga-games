@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="arcus-gagames"
-run/main_scene="uid://gq0ck8idc4qf"
+run/main_scene="uid://p6mmx1vsijyy"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,8 +21,9 @@ general/default_playback_type.web=0
 
 [autoload]
 
+GameManager="*uid://d4i8htk6xtun8"
 NextjsClient="*uid://ciata63jq3oyu"
-MusicManager="*uid://2c5j4685yu7h"
+SceneTransition="*uid://dedanhk57vh3p"
 
 [display]
 

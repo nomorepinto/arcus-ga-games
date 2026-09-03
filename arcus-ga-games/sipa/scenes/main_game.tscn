@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://3bfqf3cu2oi1" path="res://sipa/scenes/sipa.tscn" id="1_x6q1h"]
 [ext_resource type="Script" uid="uid://ut2344acm8xn" path="res://sipa/scripts/main_game.gd" id="1_xlu0t"]
+[ext_resource type="AudioStream" uid="uid://ctpqcmkp7tc5b" path="res://sipa/assets/jumpscare.mp3" id="3_nxl6o"]
+[ext_resource type="AudioStream" uid="uid://dl3nvbqf3p023" path="res://sipa/assets/gunshot.ogg" id="4_ujtwa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myywt"]
 size = Vector2(480, 20)
@@ -116,3 +118,11 @@ theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "NEW BALL INCOMING!!!"
 horizontal_alignment = 1
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=1278534211]
+stream = ExtResource("3_nxl6o")
+volume_db = -5.0
+
+[node name="FailSound" type="AudioStreamPlayer" parent="." unique_id=1544336484]
+stream = ExtResource("4_ujtwa")
+volume_db = -5.0

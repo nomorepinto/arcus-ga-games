@@ -15,6 +15,8 @@ var num_of_balls: int = 1
 @onready var restart_button = $HUD/GameOverPanel/VBoxContainer/RestartButton
 @onready var status_label = $HUD/GameOverPanel/VBoxContainer/StatusLabel
 @onready var warning_label = $HUD/WarningLabel
+@onready var death_sound = $DeathSound
+@onready var fail_sound = $FailSound
 
 func _ready():
 	# Find the DeathZone and connect its body_entered signal
@@ -32,6 +34,7 @@ func _ready():
 	
 	# Ensure the UI starts at 0
 	game_over_panel.hide()
+	warning_label.hide()
 	score_label.text = str(current_score)
 
 func spawn_new_ball():
@@ -56,6 +59,10 @@ func _on_sipa_tapped():
 	# Update the text on the screen. (str() converts the integer to text)
 	score_label.text = str(current_score)
 	
+	var score_tween = create_tween()
+	score_tween.tween_property(score_label, "scale", Vector2(1.2, 1.2), 0.08)
+	score_tween.tween_property(score_label, "scale", Vector2.ONE, 0.08)
+	
 	# Add new balls at specific thresholds
 	if current_score >= next_milestone:
 		num_of_balls += 1
@@ -65,11 +72,21 @@ func _on_sipa_tapped():
 func trigger_ball_warning():
 	# Show the warning
 	warning_label.show()
+	warning_label.modulate.a = 0.0
+	warning_label.scale = Vector2(0.8, 0.8)
+	warning_label.pivot_offset = warning_label.size / 2.0
+	
+	var warning_tween = create_tween().set_parallel(true)
+	warning_tween.tween_property(warning_label, "modulate:a", 1.0, 0.2)
+	warning_tween.tween_property(warning_label, "scale", Vector2.ONE, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	
 	# Wait for 2 seconds
 	await get_tree().create_timer(2.0).timeout
 	
 	# Hide the warning
+	var fade_out = create_tween()
+	fade_out.tween_property(warning_label, "modulate:a", 0.0, 0.2)
+	await fade_out.finished
 	warning_label.hide()
 	
 	# Only spawn the ball if they didn't die during the 2-second wait!
@@ -93,6 +110,16 @@ func trigger_game_over():
 	score_label.hide()
 	final_score_label.text = "Final Score: " + str(current_score)
 	game_over_panel.show()
+	game_over_panel.modulate.a = 0.0
+	game_over_panel.scale = Vector2(0.9, 0.9)
+	game_over_panel.pivot_offset = game_over_panel.size / 2.0
+	
+	var panel_tween = create_tween().set_parallel(true).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	panel_tween.tween_property(game_over_panel, "modulate:a", 1.0, 0.4)
+	panel_tween.tween_property(game_over_panel, "scale", Vector2.ONE, 0.4)
+	
+	death_sound.play()
+	fail_sound.play()
 
 func _on_restart_pressed():
 	# This reloads the current scene, resetting the game entirely!

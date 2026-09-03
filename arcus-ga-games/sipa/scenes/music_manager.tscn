@@ -6,6 +6,7 @@
 
 [node name="MusicManager" type="AudioStreamPlayer" unique_id=655128066]
 stream = ExtResource("1_5jj7b")
+volume_db = 5.0
 script = ExtResource("1_1gy6t")
 
 [node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=758196214]

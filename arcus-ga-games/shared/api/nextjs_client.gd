@@ -16,7 +16,7 @@ func _ready() -> void:
 			API_BASE = str(window_origin) + "/api"
 
 # --- SCORE SUBMISSION ---
-func submit_score(game_id: String, player_id: String, player_name: String, score: float) -> void:
+func submit_score(game_id: String, player_id: String, player_name: String, score: float, difficulty: String = "") -> void:
 	var http_request = HTTPRequest.new()
 	add_child(http_request)
 	
@@ -30,7 +30,8 @@ func submit_score(game_id: String, player_id: String, player_name: String, score
 		"PK": "GAME#" + game_id.to_upper(),
 		"SK": "PLAYER#" + player_id,
 		"PlayerName": player_name,
-		"Score": score
+		"Score": score,
+		"Difficulty": difficulty
 	}
 	
 	var error = http_request.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(payload))

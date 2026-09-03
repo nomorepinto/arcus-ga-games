@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bq4mius58urge"]
+
+[ext_resource type="Texture2D" uid="uid://x3nff1v860v1" path="res://dalgona cutting/assets/triangle.png" id="1_gmoym"]
+
+[node name="Triangle" type="Node2D" unique_id=1975170247]
+position = Vector2(243, 405)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=534751664]
+position = Vector2(-1.9999971, 115)
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("1_gmoym")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=1714709157]
+
+[node name="OuterBounds" type="CollisionPolygon2D" parent="Sprite2D/Area2D" unique_id=411158606]
+visible = false
+polygon = PackedVector2Array(-4.9849854, -672.4724, 682.9512, 474.11694, -687.93616, 478.95508, -4.9849854, -672.4724)
+
+[node name="InnerBounds" type="CollisionPolygon2D" parent="Sprite2D/Area2D" unique_id=1633374633]
+visible = false
+polygon = PackedVector2Array(0, -454.7655, 438.68396, 353.1687, -448.65405, 353.1687)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1575625560]
+
+[node name="MasterLine" type="Line2D" parent="." unique_id=1625396063]
+visible = false
+position = Vector2(0.3004253, -9.755991)
+scale = Vector2(1.1201718, 1.0813398)
+points = PackedVector2Array(-2, 2, 13, 30, 105.667915, 194.09944, 109, 200, -114, 201, -110, 192, -50, 87, -4, 5, -1, 2)
+closed = true
+width = 5.0
+
+[node name="StartPoint" type="Marker2D" parent="." unique_id=416515323]
+position = Vector2(-2, 0)
+
+[node name="Checkpoint" type="Marker2D" parent="." unique_id=2006297460]
+position = Vector2(-4, 201)

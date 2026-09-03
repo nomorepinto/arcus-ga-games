@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://cr27pa30j5osu"]
+
+[ext_resource type="Script" uid="uid://7o53tg3442bg" path="res://dalgona/scripts/main_dalgona.gd" id="1_m2bnq"]
+[ext_resource type="Texture2D" uid="uid://bh50fparsraj3" path="res://dalgona/assets/bene.jpg" id="3_lcugk"]
+[ext_resource type="PackedScene" uid="uid://bq4mius58urge" path="res://dalgona/scenes/triangle.tscn" id="4_1nnpk"]
+[ext_resource type="PackedScene" uid="uid://wjhgfl7ywysc" path="res://dalgona/scenes/umbrella.tscn" id="4_a6mcs"]
+[ext_resource type="AudioStream" uid="uid://ip0epsr438op" path="res://dalgona/assets/jumpscare.mp3" id="4_f2rs4"]
+[ext_resource type="PackedScene" uid="uid://cane2gw4rjcy" path="res://dalgona/scenes/square.tscn" id="4_n2xmv"]
+[ext_resource type="PackedScene" uid="uid://b5uwibqsmsrlh" path="res://dalgona/scenes/fractal.tscn" id="5_1q06n"]
+[ext_resource type="PackedScene" uid="uid://dcfur1nop7mh" path="res://dalgona/scenes/circle.tscn" id="5_b0o0d"]
+[ext_resource type="PackedScene" uid="uid://cfknqgge00htc" path="res://dalgona/scenes/star.tscn" id="6_j2l4r"]
+[ext_resource type="PackedScene" uid="uid://cw6l0xikcebsb" path="res://dalgona/scenes/bene_cookie.tscn" id="8_j2l4r"]
+[ext_resource type="Texture2D" uid="uid://wvaq1k26ho80" path="res://dalgona/assets/Squid_Game_Dalgona_Playground_Map_v1_1000_0003.jpg" id="9_1q06n"]
+[ext_resource type="AudioStream" uid="uid://bsall5gbak8c1" path="res://dalgona/assets/audio/snap1.mp3" id="9_abq77"]
+[ext_resource type="Texture2D" uid="uid://hdny1k78qvl6" path="res://dalgona/assets/needle.png" id="10_kijff"]
+[ext_resource type="AudioStream" uid="uid://knug7q2163pl" path="res://dalgona/assets/audio/snap2.mp3" id="10_kuxgi"]
+[ext_resource type="AudioStream" uid="uid://xbwkm1upawcm" path="res://dalgona/assets/audio/snap3.mp3" id="11_sh52u"]
+[ext_resource type="AudioStream" uid="uid://bdu6y8ygmq8rm" path="res://dalgona/assets/audio/snap4.mp3" id="12_4jeb7"]
+[ext_resource type="AudioStream" uid="uid://dh0quko3v5o7v" path="res://dalgona/assets/audio/snap5.mp3" id="13_ywc7y"]
+[ext_resource type="AudioStream" uid="uid://bdtytrdjs04ko" path="res://dalgona/assets/audio/snap6.mp3" id="14_0mu2x"]
+[ext_resource type="AudioStream" uid="uid://bm3u4srym533s" path="res://dalgona/assets/audio/ding.mp3" id="16_sh52u"]
+[ext_resource type="AudioStream" uid="uid://d0uo3wqydr8si" path="res://dalgona/assets/audio/successful.mp3" id="17_4jeb7"]
+[ext_resource type="AudioStream" uid="uid://bi18k47e1fd6l" path="res://dalgona/assets/audio/gunshot.ogg" id="21_xlvm0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1q06n"]
+bg_color = Color(0.8364784, 0.31251597, 0.3541979, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+
+[node name="main_dalgona" type="Node2D" unique_id=905804085]
+script = ExtResource("1_m2bnq")
+easy_scenes = Array[PackedScene]([ExtResource("5_b0o0d"), ExtResource("4_n2xmv"), ExtResource("4_1nnpk")])
+medium_scenes = Array[PackedScene]([ExtResource("6_j2l4r"), ExtResource("4_a6mcs"), ExtResource("4_1nnpk"), ExtResource("5_b0o0d"), ExtResource("4_n2xmv")])
+hard_scenes = Array[PackedScene]([ExtResource("6_j2l4r"), ExtResource("4_a6mcs"), ExtResource("8_j2l4r")])
+rare_fractal_scene = ExtResource("5_1q06n")
+crack_sounds = Array[AudioStream]([ExtResource("9_abq77"), ExtResource("10_kuxgi"), ExtResource("11_sh52u"), ExtResource("12_4jeb7"), ExtResource("13_ywc7y"), ExtResource("14_0mu2x")])
+fail_audio = ExtResource("4_f2rs4")
+cookie_success_audio = ExtResource("16_sh52u")
+run_complete_audio = ExtResource("17_4jeb7")
+current_difficulty = null
+
+[node name="jumpscare" type="CanvasLayer" parent="." unique_id=1402702962]
+
+[node name="pic" type="TextureRect" parent="jumpscare" unique_id=604853275]
+visible = false
+offset_left = 46.0
+offset_top = 332.0
+offset_right = 438.0
+offset_bottom = 625.0
+texture = ExtResource("3_lcugk")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="jumpscare" unique_id=1101533842]
+stream = ExtResource("4_f2rs4")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=896694404]
+z_index = 1
+
+[node name="Needle" type="Sprite2D" parent="." unique_id=2086170663]
+z_index = 1
+position = Vector2(248.31252, 264)
+scale = Vector2(0.108541645, 0.24583343)
+texture = ExtResource("10_kijff")
+offset = Vector2(330, -550)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=377730152]
+
+[node name="TimerLabel" type="Label" parent="UI" unique_id=987633723]
+offset_left = 17.0
+offset_top = 20.0
+offset_right = 65.0
+offset_bottom = 54.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+
+[node name="ProgressLabel" type="Label" parent="UI" unique_id=942967140]
+offset_left = 16.0
+offset_top = 57.0
+offset_right = 61.0
+offset_bottom = 91.0
+theme_override_constants/outline_size = 4
+
+[node name="GameOverPanel" type="VBoxContainer" parent="UI" unique_id=1873593535]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -69.0
+offset_right = 125.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="NameInput" type="LineEdit" parent="UI/GameOverPanel" unique_id=43124869]
+layout_mode = 2
+placeholder_text = "Enter your name..."
+
+[node name="SubmitButton" type="Button" parent="UI/GameOverPanel" unique_id=1876825161]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1q06n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1q06n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1q06n")
+text = "Submit"
+
+[node name="StatusLabel" type="Label" parent="UI/GameOverPanel" unique_id=259335974]
+layout_mode = 2
+
+[node name="PlayButton" type="Button" parent="UI/GameOverPanel" unique_id=302244905]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1q06n")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1q06n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1q06n")
+text = "Play Again"
+
+[node name="MainMenu" type="Button" parent="UI/GameOverPanel" unique_id=1460195575]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="SkipButton" type="Button" parent="UI" unique_id=51208498]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.41458333
+anchor_right = 0.6145833
+anchor_bottom = 0.0575
+grow_horizontal = 2
+text = "Skip"
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="." unique_id=859294657]
+modulate = Color(0.5200098, 0.5200098, 0.5200098, 1)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = 1176.0
+offset_bottom = 798.0
+grow_horizontal = 0
+texture = ExtResource("9_1q06n")
+
+[node name="StartHintLabel" type="Label" parent="." unique_id=1766868153]
+offset_left = 148.0
+offset_top = 245.0
+offset_right = 331.0
+offset_bottom = 279.0
+text = "Start at the top!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CrackSound" type="AudioStreamPlayer" parent="." unique_id=1825912555]
+
+[node name="FailSound" type="AudioStreamPlayer" parent="." unique_id=417828538]
+stream = ExtResource("21_xlvm0")
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=1408213122]
+stream = ExtResource("4_f2rs4")
+
+[node name="SuccessSound" type="AudioStreamPlayer" parent="." unique_id=1494276675]
+
+[node name="GameWinSound" type="AudioStreamPlayer" parent="." unique_id=1473995866]
