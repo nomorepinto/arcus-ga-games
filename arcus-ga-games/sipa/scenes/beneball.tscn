@@ -22,6 +22,7 @@ scale = Vector2(0.038, 0.038)
 texture = ExtResource("2_bgolt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1660072523]
+scale = Vector2(1.5, 1.5)
 shape = SubResource("CircleShape2D_myywt")
 
 [node name="TapSFX" type="AudioStreamPlayer" parent="." unique_id=707351116]

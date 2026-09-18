@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="arcus-gagames"
-run/main_scene="uid://p6mmx1vsijyy"
+run/main_scene="uid://760csioihxdg"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
 
