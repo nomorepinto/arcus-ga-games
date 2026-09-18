@@ -140,7 +140,6 @@ export default function Leaderboard() {
           </TabsTrigger>
           <TabsTrigger 
             value="dalgona" 
-            disabled
             className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider py-2.5 text-zinc-400 data-[state=active]:bg-rose-600 data-[state=active]:text-white data-[state=active]:shadow-[0_0_15px_rgba(225,29,72,0.4)] transition-all"
           >
             <Clock className="w-4 h-4 text-teal-400 data-[state=active]:text-white" />

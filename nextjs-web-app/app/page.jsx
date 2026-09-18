@@ -57,16 +57,6 @@ export default function Home() {
             </div>
             <Lock className="w-4 h-4 text-zinc-600" />
           </div>
-
-            <div className="flex items-center gap-3.5">
-              <div className="p-2 rounded-lg bg-teal-500/10 border border-teal-500/20 text-teal-400 group-hover:shadow-[0_0_10px_rgba(45,212,191,0.3)] transition-all">
-                <Clock className="w-5 h-5" />
-              </div>
-              <div>
-                <div className="font-semibold text-white tracking-wide">Play Dalgona</div>
-                <div className="text-xs text-teal-400 font-mono tracking-wider">Trial 02: Honeycomb Trace</div>
-              </div>
-            </div>
           */}
 
           <Link 
@@ -78,8 +68,8 @@ export default function Home() {
                 <Clock className="w-5 h-5" />
               </div>
               <div>
-                  <div className="font-semibold text-white tracking-wide">Play Dalgona</div>
-                  <div className="text-xs text-teal-400 font-mono tracking-wider">Trial 02: Honeycomb Trace</div>
+                <div className="font-semibold text-white tracking-wide">Play Dalgona</div>
+                <div className="text-xs text-teal-400 font-mono tracking-wider">Trial 02: Honeycomb Trace</div>
               </div>
             </div>
             <ArrowRight className="w-4 h-4 text-zinc-500 group-hover:text-rose-400 group-hover:translate-x-1 transition-all" />
